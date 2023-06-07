@@ -1,16 +1,18 @@
 import React from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom"; // Assuming you're using React Router
-import { useValue } from "../../contexts/userContext";
+import { toast } from "react-toastify";
+import { useValue as userContextValue } from "../../contexts/userContext";
 import styles from "./Navbar.module.css";
 
 function Navbar() {
-  const { user, logOutHandler } = useValue();
+  const { user, logOutHandler } = userContextValue();
 
   const navigate = useNavigate();
 
   const clickedOnLogOutBtn = () => {
     logOutHandler();
     navigate('/');
+    toast.success('Come back soon');
   }
 
   return (

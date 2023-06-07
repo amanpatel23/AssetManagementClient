@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 
 const UserContext = createContext();
 function useValue() {
@@ -13,7 +13,6 @@ function UserProvider({ children }) {
   const logOutHandler = () => {
     localStorage.removeItem("userInfo");
     setUser(null);
-    toast.success("Come back soon");
   };
 
   useEffect(() => {
